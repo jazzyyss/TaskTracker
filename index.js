@@ -2,9 +2,10 @@ const express = require("express")
 const app = express()
 const config = require("config")
 
-const db = require("./startup/db")
-
-db()
+//required middlewares
+require("./middlewares/default")(app)
+require("./startup/db")()
+require("./startup/routes")(app)
 
 app.get('/test', (req, res)=>{
     res.send("YYYAAAAYYYYYYYYYYY!!!!")
