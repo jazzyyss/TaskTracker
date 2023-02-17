@@ -16,7 +16,7 @@ router.post('/register', async (req, res)=>{
             password: pass
         })
         user.save()
-        res.json(user)
+        res.json({status: 'OK', message: "user created successfully"})
     }catch(er){
         res.json({status: 'error', error: er})
     }
